@@ -2,8 +2,8 @@ require 'date'
 require 'twitter'
 require 'dotenv/load'
 
-# require "./src/Weather"
-# require "./src/WeatherInfo"
+require "./src/Weather"
+require "./src/WeatherInfo"
 
 class Tweet  
   def initialize
@@ -26,16 +26,15 @@ class Tweet
 
   # ツイート本文の生成
   def create_text
-    @text="test2"
     # 天気情報取得
-    # weatherobj = Weather.new
-    # info = weatherobj.doProcess()
+    weatherobj = Weather.new
+    info = weatherobj.doProcess()
 
-    # # ツイート部分
-    # @tweet = "今日、#{info.today()} 東京の天気です\n"
-    # @tweet += "天気は#{info.todayTelop()}\n"
-    # @tweet += "最高気温は【#{info.todayTempMax()}℃】\n"
-    # @tweet += "最低気温は【#{info.todayTempMin()}℃】\n"
+    # ツイート部分
+    @tweet = "今日、#{info.today()} 東京の天気です\n"
+    @tweet += "天気は#{info.todayTelop()}\n"
+    @tweet += "最高気温は【#{info.todayTempMax()}℃】\n"
+    @tweet += "最低気温は【#{info.todayTempMin()}℃】\n"
   end
 
   private
