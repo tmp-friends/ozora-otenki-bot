@@ -25,9 +25,9 @@ class Weather
   # メイン処理メソッド
   def doProcess()
     # 拠点コード
-    keyWord = ENV['location-code']
+    keyWord = '130010'
     # 天気API URL取得
-    url = ENV['weather-url']
+    url = 'https://weather.tsukumijima.net/api/forecast'
     return analysisWeather(connectionAPI(keyWord, url))
   end
 
