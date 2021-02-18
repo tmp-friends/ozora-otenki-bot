@@ -8,7 +8,7 @@ require "./src/WeatherInfo"
 class Tweet  
   def initialize
     # 投稿内容の初期化
-    @text = ""
+    # @text = ""
     # クライアントの生成
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "O4BM7HR45NQQrQ632Nsd4vRDB"
