@@ -32,20 +32,19 @@ class Tweet
 
     # ツイート部分
     @text = "みなさんおはようございます！ 時刻は7時30分！\n"
-    @text += "今日のお空はどんな空～❓　大空お天気の時間です✨\n"
+    @text += "今日のお空はどんな空～❓\n大空お天気の時間です✨\n"
     @text += "今日の都心部は#{info.todayTelop()}、最高気温は#{info.todayTempMax()}℃です！\n"
     @text += "それでは通勤・通学気をつけて，行ってらっしゃ～い！"
-
-    images = []
-    images << File.new("./images/otenki.jpg")
   end
 
   private
 
   # Tweet投稿処理
   def update
-    begin 
-      @client.update_with_media(@text,images)
+    begin
+      open("./images") do |img|
+        @client.update_with_media(@text,img)
+      end
     rescue => e
       p e # エラー時はログを出力
     end
