@@ -31,10 +31,15 @@ class Tweet
     info = weatherobj.doProcess()
 
     # ツイート部分
-    @text = "今日、#{info.today()} 東京の天気です\n"
-    @text += "天気は#{info.todayTelop()}\n"
-    @text += "最高気温は【#{info.todayTempMax()}℃】\n"
-    @text += "最低気温は【#{info.todayTempMin()}℃】\n"
+    # @text = "今日、#{info.today()} 東京の天気です\n"
+    # @text += "天気は#{info.todayTelop()}\n"
+    # @text += "最高気温は【#{info.todayTempMax()}℃】\n"
+    # @text += "最低気温は【#{info.todayTempMin()}℃】\n"
+
+    @text = "みなさんおはようございます❕ 時刻は7時30分\n"
+    @text += "今日のお空はどんな空～❓　大空お天気の時間です✨\n"
+    @text += "今日の都心部は#{info.todayTelop()}❕ 最高気温は#{info.todayTempMax()}℃です\n"
+    @text += "それでは通勤通学気をつけて，行ってらっしゃ～い❕"
   end
 
   private
