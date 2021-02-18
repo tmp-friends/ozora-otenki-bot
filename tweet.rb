@@ -42,9 +42,9 @@ class Tweet
   # Tweet投稿処理
   def update
     begin
-      open("./images") do |img|
-        @client.update_with_media(@text,img)
-      end
+      images = []
+      images << File.new("./images/otenki.jpg")
+      @client.update_with_media(@text,images)
     rescue => e
       p e # エラー時はログを出力
     end
