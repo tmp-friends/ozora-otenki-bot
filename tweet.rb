@@ -37,7 +37,7 @@ class Tweet
     @text += "それでは通勤・通学気をつけて，行ってらっしゃ～い！"
 
     images = []
-    images << File.new(./images/お天気.jpg)
+    images << File.new("./images/お天気.jpg")
   end
 
   private
