@@ -43,8 +43,8 @@ class Tweet
   def update
     begin
       images = []
-      images << File.new("./images/otenki.jpg")
-      @client.update_with_media(@text,images)
+      images << File.new("./images")
+      @client.update_with_media(@text,images.sample)
     rescue => e
       p e # エラー時はログを出力
     end
