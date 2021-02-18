@@ -8,7 +8,7 @@ require "./src/WeatherInfo"
 class Tweet  
   def initialize
     # 投稿内容の初期化
-    # @text = ""
+    @text = ""
     # クライアントの生成
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "O4BM7HR45NQQrQ632Nsd4vRDB"
@@ -31,15 +31,13 @@ class Tweet
     info = weatherobj.doProcess()
 
     # ツイート部分
-    # @text = "今日、#{info.today()} 東京の天気です\n"
-    # @text += "天気は#{info.todayTelop()}\n"
-    # @text += "最高気温は【#{info.todayTempMax()}℃】\n"
-    # @text += "最低気温は【#{info.todayTempMin()}℃】\n"
-
-    @text = "みなさんおはようございます❕ 時刻は7時30分\n"
+    @text = "みなさんおはようございます！ 時刻は7時30分！\n"
     @text += "今日のお空はどんな空～❓　大空お天気の時間です✨\n"
-    @text += "今日の都心部は#{info.todayTelop()}❕ 最高気温は#{info.todayTempMax()}℃です\n"
-    @text += "それでは通勤通学気をつけて，行ってらっしゃ～い❕"
+    @text += "今日の都心部は#{info.todayTelop()}、最高気温は#{info.todayTempMax()}℃です！\n"
+    @text += "それでは通勤・通学気をつけて，行ってらっしゃ～い！"
+
+    images = []
+    images << File.new(./images/お天気.jpg)
   end
 
   private
@@ -47,7 +45,7 @@ class Tweet
   # Tweet投稿処理
   def update
     begin 
-      @client.update(@text)
+      @client.update_with_media(@text,images)
     rescue => e
       p e # エラー時はログを出力
     end
