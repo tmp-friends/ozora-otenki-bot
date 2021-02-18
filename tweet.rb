@@ -2,7 +2,7 @@ require 'date'
 require 'twitter'
 require 'dotenv/load'
 
-class tweet  
+class Tweet  
   def initialize
     # 投稿内容の初期化
     @text = ""
