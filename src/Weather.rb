@@ -24,7 +24,7 @@ class Weather
 
   # メイン処理メソッド
   def doProcess()
-    # 拠点コード
+    # 拠点コード(東京)
     keyWord = '130010'
     # 天気API URL取得
     url = 'https://weather.tsukumijima.net/api/forecast'
