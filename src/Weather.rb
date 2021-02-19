@@ -49,11 +49,20 @@ class Weather
 
     info = WeatherInfo.new
 
-    # 本日の天気情報
+    # 概要の取得
+    info.description=(convertNil(hash.dig(@@DESCRIPTION, @@TEXT)))
+
+    # 今日の天気情報
     info.todayTelop=(convertNil(hash.dig(@@FORECASTS, @@TODAY, @@TELOP)))
     info.today=(convertNil(hash.dig(@@FORECASTS, @@TODAY, @@DATE)))
     info.todayTempMin=(convertNil(hash.dig(@@FORECASTS, @@TODAY, @@TEMPERATURE, @@MIN, @@CELSIUS)))
     info.todayTempMax=(convertNil(hash.dig(@@FORECASTS, @@TODAY, @@TEMPERATURE, @@MAX, @@CELSIUS)))
+
+    # 明日の天気情報
+    info.tmrwTelop=(convertNil(hash.dig(@@FORECASTS, @@TMRW, @@TELOP)))
+    info.tmrw=(convertNil(hash.dig(@@FORECASTS, @@TMRW, @@DATE)))
+    info.tmrwTempMin=(convertNil(hash.dig(@@FORECASTS, @@TMRW, @@TEMPERATURE, @@MIN, @@CELSIUS)))
+    info.tmrwTempMax=(convertNil(hash.dig(@@FORECASTS, @@TMRW, @@TEMPERATURE, @@MAX, @@CELSIUS)))
 
     return info
   end
