@@ -35,7 +35,8 @@ class Weather
   # 戻り値:ハッシュ化されたレスポンス
   def connectionAPI(keyWord, url)
     # http接続クライアントの生成
-    client = HTTPClient.new
+    # httpclientエラー対応：OpenSSLのデフォルトの証明書を利用
+    client = HTTPClient.new{self.ssl_config.add_trust_ca(OpenSSL::X509::DEFAULT_CERT_FILE)}
     # 指定した拠点のコードをリクエストに設定する。
     query = { 'city' => keyWord }
     # APIリクエスト
