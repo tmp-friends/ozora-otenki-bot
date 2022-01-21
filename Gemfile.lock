@@ -19,6 +19,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.3)
     http_parser.rb (0.6.0)
+    httpclient (2.8.3)
     json (1.8.6)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -55,8 +56,9 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  sinatra (= 1.4.7)
-  twitter (= 5.16.0)
+  httpclient
+  sinatra
+  twitter
 
 RUBY VERSION
    ruby 2.5.1p57
